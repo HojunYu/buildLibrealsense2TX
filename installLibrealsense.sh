@@ -113,13 +113,13 @@ cd build
 echo "${green}Configuring Make system${reset}"
 # Use the CMake version that we built, must be > 3.8
 # Build with CUDA (default), the CUDA flag is USE_CUDA, ie -DUSE_CUDA=true
-${HOME}/CMake/bin/cmake ../ -DBUILD_EXAMPLES=true -DBUILD_WITH_CUDA=true
+${HOME}/CMake/bin/cmake ../ -DBUILD_EXAMPLES=true
 # The library will be installed in /usr/local/lib, header files in /usr/local/include
 # The demos, tutorials and tests will located in /usr/local/bin.
 echo "${green}Building librealsense, headers, tools and demos${reset}"
 
 NUM_CPU=$(nproc)
-time make -j$(($NUM_CPU - 1))
+time make 
 if [ $? -eq 0 ] ; then
   echo "librealsense make successful"
 else
